@@ -116,9 +116,9 @@ NavMeshSettings:
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
@@ -133,20 +133,24 @@ GameObject:
 --- !u!81 &519420029
 AudioListener:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -176,7 +180,7 @@ Camera:
 --- !u!4 &519420032
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -196,7 +200,7 @@ Prefab:
     - target: {fileID: 114911221308980194, guid: e7faef580465e63498af4a165b3a09b8,
         type: 2}
       propertyPath: _states.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4305358425318176, guid: e7faef580465e63498af4a165b3a09b8, type: 2}
       propertyPath: m_LocalPosition.x
@@ -239,17 +243,33 @@ Prefab:
     - target: {fileID: 114911221308980194, guid: e7faef580465e63498af4a165b3a09b8,
         type: 2}
       propertyPath: CollisionLayers.m_Bits
-      value: 1
+      value: 51
       objectReference: {fileID: 0}
+    - target: {fileID: 1009054965020232, guid: e7faef580465e63498af4a165b3a09b8, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114911221308980194, guid: e7faef580465e63498af4a165b3a09b8,
+        type: 2}
+      propertyPath: _states.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: fe6de2d31523ca24b9e9f749ff109c3c,
+        type: 2}
+    - target: {fileID: 114911221308980194, guid: e7faef580465e63498af4a165b3a09b8,
+        type: 2}
+      propertyPath: _states.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f2a1e558fc8c5543973dcb7490a5573,
+        type: 2}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e7faef580465e63498af4a165b3a09b8, type: 2}
-  m_IsPrefabParent: 0
+  m_SourcePrefab: {fileID: 100100000, guid: e7faef580465e63498af4a165b3a09b8, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1991162520
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 1991162522}
   - component: {fileID: 1991162521}
@@ -264,7 +284,7 @@ GameObject:
 --- !u!212 &1991162521
 SpriteRenderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1991162520}
   m_Enabled: 1
@@ -306,10 +326,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!4 &1991162522
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1991162520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -322,7 +343,7 @@ Transform:
 --- !u!61 &1991162523
 BoxCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1991162520}
   m_Enabled: 1
