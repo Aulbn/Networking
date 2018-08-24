@@ -10,6 +10,7 @@ public abstract class Controller : MonoBehaviour{
 	public State CurrentState;
 
 	void Awake(){
+		Initialize ();
 		foreach (State state in _states) {
 			State instance = Instantiate (state);
 			instance.Initialize (this);
@@ -21,6 +22,10 @@ public abstract class Controller : MonoBehaviour{
 			CurrentState.Enter ();
 		}
 	}
+
+	protected virtual void Initialize(){
+		
+	} 
 
 	private void Update(){
 		CurrentState.Update ();

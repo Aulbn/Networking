@@ -7,6 +7,7 @@ public class GroundedState : State {
 	private PlayerController _controller;
 	public float moveSpeed = 6f;
 	public float jumpForce = 5f;
+	public Sprite phSprite;
 
 	public override void Initialize (Controller owner){
 		_controller = (PlayerController)owner;
@@ -14,6 +15,8 @@ public class GroundedState : State {
 
 	public override void Enter (){
 		_controller.moveSpeed = moveSpeed;
+		_controller.SetSprite (phSprite);
+		_controller.pHUD.ResetPunchCharge ();
 	}
 
 	public override void Update (){
@@ -26,6 +29,7 @@ public class GroundedState : State {
 
 	public override void FixedUpdate (){
 		_controller.UpdateMovement ();
+		_controller.TurnPlayer (Input.GetAxisRaw("Horizontal"), false);
 
 		if (Input.GetButtonDown ("Jump") && _controller.IsGrounded()) {
 			Debug.Log ("jump: " + jumpForce);

@@ -8,7 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c29f0a7fefacc45ac2a595bb0c74dc, type: 3}
-  m_Name: JumpState
+  m_Script: {fileID: 11500000, guid: 372c52153fd02144b8f908741c4046f9, type: 3}
+  m_Name: PunchChargeState
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
+  chargeTime: 1
+  phSprite: {fileID: 21300056, guid: 626290eaed8b7da47b5b2759e5e0e5a5, type: 3}

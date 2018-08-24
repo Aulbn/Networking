@@ -8,7 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 372c52153fd02144b8f908741c4046f9, type: 3}
-  m_Name: PunchChargeState
+  m_Script: {fileID: 11500000, guid: c23e06e1d75f4bf4b924de17f82ed3c9, type: 3}
+  m_Name: PunchState
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  punchLength: 5
+  punchSpeed:
+    Min: 0.1
+    Max: 0.35
+  phSprite: {fileID: 21300060, guid: 626290eaed8b7da47b5b2759e5e0e5a5, type: 3}
