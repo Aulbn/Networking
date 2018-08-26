@@ -27,7 +27,7 @@ public class PunchChargeState : State {
 	public override void Update (){
 		if (chargeTimer < chargeTime) {
 			chargeTimer += Time.deltaTime;
-			_controller.pHUD.SetPunchCharge (chargeTimer / chargeTime);
+			_controller.sHUD.SetPunchCharge (chargeTimer / chargeTime);
 		} else if (forcedReleaseTimer < forcedReleaseTime){
 			chargeTimer = chargeTime;
 			forcedReleaseTimer += Time.deltaTime;

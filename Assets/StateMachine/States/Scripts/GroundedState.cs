@@ -16,7 +16,7 @@ public class GroundedState : State {
 	public override void Enter (){
 		_controller.moveSpeed = moveSpeed;
 		_controller.SetSprite (phSprite);
-		_controller.pHUD.ResetPunchCharge ();
+		_controller.sHUD.ResetPunchCharge ();
 	}
 
 	public override void Update (){
