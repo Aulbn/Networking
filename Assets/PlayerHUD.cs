@@ -24,4 +24,6 @@ public class PlayerHUD : MonoBehaviour {
 		punchChargeFill.fillAmount = 0;
 	}
 
+
+
 }

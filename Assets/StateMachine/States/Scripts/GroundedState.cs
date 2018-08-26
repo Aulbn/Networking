@@ -20,11 +20,14 @@ public class GroundedState : State {
 	}
 
 	public override void Update (){
-		if (Input.GetKey (KeyCode.J)) {
+		if (Input.GetButton("Punch")) {
 			_controller.TransitionTo<PunchChargeState> ();
 		}
+		if (Input.GetButtonDown("Uppercut")) {
+			_controller.TransitionTo<UppercutState> ();
+		}
 		if (!_controller.IsGrounded())
-			_controller.TransitionTo<JumpState> ();
+			_controller.TransitionTo<AirState> ();
 	}
 
 	public override void FixedUpdate (){

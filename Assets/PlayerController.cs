@@ -7,8 +7,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerController : Controller {
 	public LayerMask CollisionLayers;
-	public float moveSpeed;
-	public float punchCharge;
+	public float punchCd = 2;
+	public float uppercutCd = 2;
+	public float stunCd = 2;
 
 	[HideInInspector]
 	public Rigidbody2D rb;
@@ -16,7 +17,15 @@ public class PlayerController : Controller {
 	public BoxCollider2D col;
 	[HideInInspector]
 	public SpriteRenderer spriteRenderer;
+	[HideInInspector]
+	public float punchCharge;
+	[HideInInspector]
+	public float moveSpeed;
+
+	private Vector2 cursorPos;
+
 	public PlayerHUD pHUD;
+	public ScreenHUD sHUD;
 
 	protected override void Initialize (){
 		rb = GetComponent<Rigidbody2D> ();
@@ -29,15 +38,16 @@ public class PlayerController : Controller {
 		rb.velocity = new Vector2 (horizontal * moveSpeed, rb.velocity.y);
 	}
 
-	public void TurnPlayer(float variable, bool negative){
-		if (!negative ? variable < 0 : variable > 0)
+	public void TurnPlayer(float variable, bool inverted){
+		if (!inverted ? variable < 0 : variable > 0)
 			transform.localScale = new Vector3 (Mathf.Abs (transform.localScale.x) * -1, transform.localScale.y, transform.localScale.z);
-		else if (!negative ? variable > 0 : variable < 0)
+		else if (!inverted ? variable > 0 : variable < 0)
 			transform.localScale = new Vector3 (Mathf.Abs (transform.localScale.x), transform.localScale.y, transform.localScale.z);
 	}
 
 	public void SetSprite(Sprite sprite){
-		spriteRenderer.sprite = sprite;
+		if (sprite != null)
+			spriteRenderer.sprite = sprite;
 	}
 
 	public int Direction(){
@@ -49,7 +59,6 @@ public class PlayerController : Controller {
 
 	public void TurnHorizontally(){
 		transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y,transform.localScale.z);
-
 	}
 
 	public bool IsGrounded(){
@@ -70,5 +79,4 @@ public class PlayerController : Controller {
 		else
 			return true;
 	}
-
 }

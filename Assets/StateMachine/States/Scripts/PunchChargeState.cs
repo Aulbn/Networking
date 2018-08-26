@@ -34,7 +34,7 @@ public class PunchChargeState : State {
 		} else
 			Punch ();
 
-		if (Input.GetKeyUp (KeyCode.J)) {
+		if (Input.GetButtonUp("Punch")) {
 			Punch ();
 		}
 	}

@@ -8,9 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db88e6167547ade43a096e3a0ed9d89b, type: 3}
-  m_Name: GroundedState
+  m_Script: {fileID: 11500000, guid: 3b70c3218b577b84293468279071c34b, type: 3}
+  m_Name: UppercutState
   m_EditorClassIdentifier: 
-  moveSpeed: 6
-  jumpForce: 45
-  phSprite: {fileID: 21300002, guid: 626290eaed8b7da47b5b2759e5e0e5a5, type: 3}
+  jumpHeight: 4
+  travelSpeed: 7
+  exitForce: 80
+  phSprite: {fileID: 21300012, guid: 626290eaed8b7da47b5b2759e5e0e5a5, type: 3}

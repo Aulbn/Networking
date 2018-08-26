@@ -11,6 +11,7 @@ public class PunchState : State {
 	private float punchTimer = 0;
 	private Vector3 startPos;
 	public Sprite phSprite;
+	private Vector3 dir;
 
 	public override void Initialize (Controller owner){
 		_controller = (PlayerController)owner;
@@ -21,13 +22,14 @@ public class PunchState : State {
 		startPos = _controller.transform.position;
 		punchTimer = 0;
 		_punchSpeed = Mathf.Lerp (punchSpeed.Min, punchSpeed.Max, _controller.punchCharge);
+		dir = _controller.sHUD.AimDireciton ();
+		_controller.TurnPlayer (dir.x / Mathf.Abs (dir.x), true);
 	}
 
 	public override void Update (){
 		if (punchTimer < _punchSpeed) {
 			punchTimer += Time.deltaTime;
-			_controller.transform.position = Vector3.Lerp (startPos, new Vector3 (startPos.x + punchLength * _controller.punchCharge * _controller.Direction (), startPos.y), punchTimer/_punchSpeed);
-//			_controller.transform.position = Vector3.Lerp (_controller.transform.position, new Vector3 (startPos.x + punchLength * _controller.punchCharge * _controller.Direction (), startPos.y), punchTimer/_punchSpeed);
+			_controller.transform.position = Vector3.Lerp (startPos, dir * punchLength * _controller.punchCharge, punchTimer/_punchSpeed);
 		}
 		else {
 			_controller.TurnHorizontally ();
