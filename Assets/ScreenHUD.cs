@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class ScreenHUD : MonoBehaviour {
 	public Transform player;
-	public Image sight;
-	public float sightRadius = 2f;
-	private Vector3 lastMousePos;
-	[Range(0,1)]
-	public float mouseSensitivity = 1f;
-	private Vector3 aimDirection = Vector3.zero;
+	public RectTransform sight;
+	private Vector2 aimDirection = Vector2.zero;
 	public Image punchChargeFill;
 
 	private void Start(){
@@ -19,21 +15,19 @@ public class ScreenHUD : MonoBehaviour {
 
 	private void Update(){
 		AimAssistant ();
+		Debug.DrawRay (player.position, new Vector3 (aimDirection.x, aimDirection.y) * 10);
 	}
 
 	public void AimAssistant(){
-		Vector3 mousePosDiff = new Vector3 (Input.mousePosition.x - lastMousePos.x, Input.mousePosition.y - lastMousePos.y) * mouseSensitivity;
-
-		aimDirection = sight.transform.position + mousePosDiff - Camera.main.WorldToScreenPoint (player.position);
+		aimDirection = Camera.main.ScreenToWorldPoint (Input.mousePosition) - sight.transform.position;
 		aimDirection = aimDirection.normalized;
-		sight.transform.position = Camera.main.WorldToScreenPoint (player.position) + aimDirection * sightRadius;
-
-//		sight.transform.rotation = Quaternion.LookRotation (aimDirection, Vector3.left);
-
-		lastMousePos = Input.mousePosition;
+		float angle = Mathf.Atan2 (aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+		Quaternion rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+		sight.localRotation = rotation;
+		sight.position = player.position;
 	}
 
-	public Vector3 AimDireciton(){
+	public Vector2 AimDireciton(){
 		return aimDirection;
 	}
 
